@@ -18,10 +18,10 @@ int main (int argc, char** argv)
     int* first = new int(5);
     int* second = nullptr;
     
-    int ret, flush;
-    unsigned have;
+    int ret = 0;
+    // unsigned have;
     z_stream strm;
-    unsigned char in[100];
+    //unsigned char in[100];
     unsigned char out[100];
 
      /* allocate deflate state */
@@ -30,7 +30,7 @@ int main (int argc, char** argv)
     strm.opaque = Z_NULL;
     ret = deflateInit(&strm, 5);
     if (ret != Z_OK)
-        return ret;
+        return -1;
 
     while(true)
     {
