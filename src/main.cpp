@@ -7,6 +7,7 @@
 #include <thread>
 #include <iostream>
 #include <algorithm>
+#include <memory>
 
 void print(gsl::not_null<int*> value);
 
@@ -15,14 +16,14 @@ int main (int argc, char** argv)
     std::cout << "Start program" << std::endl;
     pugi::xml_document doc;
 
-    int* first = new int(5);
+    std::unique_ptr<int> first { new int(5) };
     int* second = nullptr;
     
     int ret = 0;
     // unsigned have;
     z_stream strm;
     //unsigned char in[100];
-    unsigned char out[100];
+    // unsigned char out[100];
 
      /* allocate deflate state */
     strm.zalloc = Z_NULL;
@@ -39,7 +40,7 @@ int main (int argc, char** argv)
         print(second);
     }
 
-    delete first;
+    //delete first;
 
     return 0;
 }
