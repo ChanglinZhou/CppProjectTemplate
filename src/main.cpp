@@ -36,8 +36,8 @@ int main (int argc, char** argv)
     while(true)
     {
         std::this_thread::sleep_for(std::chrono::seconds(1));
-        print(first);
-        print(second);
+        print(first.get());
+        //print(second);
     }
 
     //delete first;
